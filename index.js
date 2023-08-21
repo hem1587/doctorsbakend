@@ -10,6 +10,9 @@ app.use(express.json());
 app.use("/users",userRouter);
 app.use("/doctors",doctorRouter)
 
+app.get("/",(req,res)=>{
+    res.send("welcome to home")
+})
 
 app.listen(process.env.PORT,async()=>{
     try {
