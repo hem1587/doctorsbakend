@@ -2,6 +2,7 @@ const express=require("express");
 const { connection } = require("./db");
 const { userRouter } = require("./Routes/user.route");
 const { doctorRouter } = require("./Routes/doctor.route");
+const cors=require("cors")
 require(`dotenv`).config();
 
 
@@ -9,7 +10,7 @@ const app=express();
 app.use(express.json());
 app.use("/users",userRouter);
 app.use("/doctors",doctorRouter)
-
+app.use(cors())
 app.get("/",(req,res)=>{
     res.send("welcome to home")
 })
